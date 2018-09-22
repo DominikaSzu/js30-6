@@ -4,11 +4,28 @@ document.addEventListener('DOMContentLoaded', function(e) {
     
     const cities = [];
     
+    function checkFetchStatus (response) {
+        if (response.status === 200) {
+            return Promise.resolve(response);
+        } else {
+            return Promise.reject(
+                new Error(response.statusText));
+        }
+    }
+                
+    function turnToJson (data) {
+        return data.json();
+    }
+    
+    
     fetch(endpoint)
-        .then(response => response.json())
+        .then(checkFetchStatus)
+        .then(turnToJson)
         .then(data => cities.push(data))
         .catch(error => console.log(`Uups, this is the trouble maker: ${error}`));
     
     console.log(cities);
+            
+
     
 });
