@@ -1,0 +1,36 @@
+*, body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #cae4db;
+    box-sizing: border-box;
+}
+
+.search-form {
+    width: 400px;
+    text-align: center;
+    margin: 50px auto;
+    border-radius: 10px;
+    background-color: #7a9d96;
+    font-family: 'Expletus Sans', cursive;
+}
+
+.search-list {
+    list-style-type: none;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #00303f;            
+}
+
+.search-input {
+    margin: 15px auto;
+    padding: 15px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.search-input:focus {
+    border: 3px solid #dcae1d;
+}
