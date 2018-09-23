@@ -2,6 +2,7 @@
     const cities = [];
     const searchInput = document.querySelector('.search-input');
     const searchList = document.querySelector('.search-list');
+    const basicContent = searchList.innerHTML;
 
     function checkFetchStatus(response) {
         if (response.status === 200) {
@@ -31,7 +32,8 @@
     }
 
     function displayValue() {
-        const userInput = this.value;
+        if (searchInput.value) {
+          const userInput = this.value;
         let resultArray = matchWord(userInput, cities);
         let newInput = resultArray.map(place => {
             const regex = new RegExp(this.value, 'gi');
@@ -43,8 +45,11 @@
                 <span class="population">${place.population}</span>
                 </li>`
         }).join('');
-        searchList.innerHTML = newInput;
-        
+        searchList.innerHTML = newInput;  
+        } else {
+         searchList.innerHTML = basicContent;   
+        }
+  
     }
 
     searchInput.addEventListener('input', displayValue);
