@@ -28,3 +28,11 @@
             return city.city.match(regex) || city.state.match(regex)
         })
     }
+
+    function displayValue() {
+        const userInput = this.value;
+        let resultArray = matchWord(userInput, cities);
+        console.log(resultArray)
+    }
+
+    searchInput.addEventListener('keyup', displayValue);
