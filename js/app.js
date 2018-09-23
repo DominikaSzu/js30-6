@@ -1,6 +1,7 @@
     const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
     const cities = [];
     const searchInput = document.querySelector('.search-input');
+    const searchList = document.querySelector('.search-list');
 
     function checkFetchStatus(response) {
         if (response.status === 200) {
@@ -32,7 +33,18 @@
     function displayValue() {
         const userInput = this.value;
         let resultArray = matchWord(userInput, cities);
-        console.log(resultArray)
+        let newInput = resultArray.map(place => {
+            const regex = new RegExp(this.value, 'gi');
+            const cityName = place.city.replace(regex, `<span class="bright">${this.value}</span>`);
+            const stateName = place.state.replace(regex, `<span class="bright">${this.value}</span>`);
+            return `
+                <li>
+                <span class="name">${cityName}, ${stateName}, </span>
+                <span class="population">${place.population}</span>
+                </li>`
+        }).join('');
+        searchList.innerHTML = newInput;
+        
     }
 
-    searchInput.addEventListener('keyup', displayValue);
+    searchInput.addEventListener('input', displayValue);

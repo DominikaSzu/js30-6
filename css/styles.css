@@ -34,3 +34,7 @@ body {
 .search-input:focus {
     border: 3px solid #dcae1d;
 }
+
+.bright {
+    color: coral;
+}
