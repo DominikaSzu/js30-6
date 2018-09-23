@@ -41,7 +41,7 @@
             const stateName = place.state.replace(regex, `<span class="bright">${this.value}</span>`);
             return `
                 <li>
-                <span class="name">${cityName}, ${stateName}, </span>
+                <span class="name">${cityName}, ${stateName}, ⛹</span>
                 <span class="population">${place.population}</span>
                 </li>`
         }).join('');

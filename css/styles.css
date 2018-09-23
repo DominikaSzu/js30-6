@@ -38,3 +38,8 @@ body {
 .bright {
     color: coral;
 }
+
+.population {
+    font-size: 0.8em;
+    color: burlywood;
+}
